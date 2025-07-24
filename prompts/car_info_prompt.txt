@@ -1,0 +1,22 @@
+Tenho um sistema de consulta de informações sobre carros. O modelo a ser buscado é: "%s".
+
+Você deve interpretar esse modelo com o máximo de precisão, assumindo que o nome inserido pode conter erros ou ser vago. Pesquise com base no nome real dos modelos lançados no Brasil ou no mundo. NÃO preencha dados genéricos ou aproximados — use apenas informações que se aplicam **exatamente** ao modelo informado.
+
+Gere um JSON válido e bem formatado, preenchido com dados reais, claros e confiáveis. Use linguagem informal, simples e sem termos técnicos, como se fosse uma dica entre donos de carro.
+
+IMPORTANTE:
+- A resposta deve conter apenas o JSON, sem nenhum comentário, explicação ou cabeçalho.
+- Todos os campos devem estar presentes e corretamente preenchidos, sem omissões ou inferências erradas.
+
+Aqui está o formato:
+{
+  "model": "(string) Somente o nome e modelo do carro (ex: Honda Civic VTi). NÃO coloque o ano do carro nesse campo",
+  "year": "(string) Ano exato de fabricação (ex: 1993)",
+  "engine": "(string) Nome do motor original de fábrica (ex: B16A2 1.6 VTEC DOHC)",
+  "coolant": "(string) Informe o tipo e cor recomendada do líquido de arrefecimento. CITE exatamente 3 marcas de confiança no Brasil e diga de quanto em quanto tempo e a cada quantos km deve ser feita a troca"
+  "brakeFluid": "(string) Informe o tipo correto do fluido de freio. CITE exatamente 3 marcas confiáveis no Brasil e diga a frequência de troca em tempo e km"
+  "description": "(string) Texto descontraído e envolvente sobre o carro. Destaque os pontos fortes do modelo: se é confiável, esportivo, icônico, bom de consumo, visado pra modificação, etc. Deve ser fácil de ler, como uma resenha de dono apaixonado",
+  "chronicIssues": "(array de strings) Uma lista de problemas comuns que explique de maneira detalhada mas não técnica os principais problemas crônicos desse modelo de carro. Use uma linguagem não formal. Se for um carro com muitos problemas, listar no máximo 5",
+  "maintenanceTips": "(array de strings) Uma lista de dicas de manutenção para o modelo de carro informado. Essa lista deve levar em consideração TODAS as características do carro: seja ano, motor, rotação, temperatura, problemas crônicos, e todo o resto. Dê no máximo 7 dicas, mas pode ser menos a depender do modelo do carro."
+  "sharedParts": "(array de strings) Alguns carros tem peças compartilhadas com outros da mesma ou de outra marca. Liste peças que costumam dar defeito no modelo de carro citado e que são compatíveis com outros carros. Se for modelo recente (2020+), diga que ainda existem peças no mercado para esse modelo de carro, e depois cite carros que compartilham essas principais peças."
+}

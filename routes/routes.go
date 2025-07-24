@@ -9,6 +9,6 @@ func RegisterRoutes(r *gin.Engine) {
 	api := r.Group("/api/v1")
 	{
 		//api.GET("/cars/:mocked-model", handlers.GetCarInfo)
-		api.POST("/cars/:model", handlers.GetCarInfoFromOpenAI)
+		api.POST("/cars/:model", handlers.GetCarInfoHandler)
 	}
 }

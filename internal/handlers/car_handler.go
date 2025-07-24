@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/Camarg0/search-car-api/internal/services"
@@ -9,8 +8,6 @@ import (
 )
 
 func GetCarInfo(c *gin.Context) {
-	fmt.Println("Cheguei aqui!")
-
 	carModel := c.Param("mocked-model")
 	carInfo, found := services.GetMockedCarInfo(carModel)
 
@@ -22,18 +19,14 @@ func GetCarInfo(c *gin.Context) {
 	c.JSON(http.StatusOK, carInfo)
 }
 
-func GetCarInfoFromOpenAI(c *gin.Context) {
-
+func GetCarInfoHandler(c *gin.Context) {
 	carModel := c.Param("model")
-
 	carInfo, err := services.GetCarInfoFromOpenAI(carModel)
 
 	if err != nil {
-
-		fmt.Println("Cheguei aqui no erro!")
-
-		fmt.Println(err)
-		c.JSON(http.StatusNotFound, err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+		})
 		return
 	}
 
